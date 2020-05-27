@@ -4,7 +4,12 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config.from_object('config')
+#app.config.from_object('config')
+
+app.config['SECRET_KEY'] = os.environ['SECRET_KEY']
+app.config['LOG_FILE_NAME'] = os.environ['LOG_FILE_NAME']
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['SQLALCHEMY_DATABASE_URI']
+
 db = SQLAlchemy(app)
 
 import ftapp.core.constants as constants
