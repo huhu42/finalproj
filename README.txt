@@ -1,6 +1,6 @@
 This is an app created for the Data Incubator Capstone Project.
-See reference ppt for
-1. Install requirements
-2. Create db
-3. Run: python run.py
-4.
+See reference ppt for detailed description on the project.
+This app is hosted on http://intense-shelf-98586.herokuapp.com/
+
+
+
