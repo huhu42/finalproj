@@ -1,0 +1,17 @@
+pandas
+numpy
+matplotlib
+keras==2.2.5
+sklearn
+gunicorn==19.9.0
+requests==2.20.0
+flask
+jinja2
+pip
+flask_wtf
+wtforms
+flask_sqlalchemy
+tensorflow==1.14
+pandas_datareader
+factor_analyzer
+yellowbrick

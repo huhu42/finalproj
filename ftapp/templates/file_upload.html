@@ -1,0 +1,78 @@
+<!doctype html>
+{% extends  'layout.html' %}
+
+{% block content %}
+
+
+<div class="content-section">
+<form action='' method="POST" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+            <fieldset class="from-group">
+                <legend class="border-bottom mb-2">Uploade CSV File</legend>
+                <div class="from-group mb-2">
+                {{ form.name.label(class="form-control-label") }}
+                {% if form.name.errors %}
+                    {{ form.name(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.name.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.name(class="form-control") }}
+                {% endif %}
+                </div>
+
+                <div class="from-group mb-2">
+                {{ form.ycol.label(class="form-control-label") }}
+                {% if form.ycol.errors %}
+                    {{ form.ycol(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.ycol.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.ycol(class="form-control") }}
+                {% endif %}
+            </div>
+                <div class="form-group">
+                    <p>
+                    <input type="checkbox" name='discretize' value='discretize'>Discretize Prediction <br>
+                    </p>
+                </div>
+                <div class="from-group mb-2">
+                {{ form.cat_cols.label(class="form-control-label") }}
+                {% if form.cat_cols.errors %}
+                    {{ form.cat_cols(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.catcols.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.cat_cols(class="form-control") }}
+                {% endif %}
+            </div>
+                <div class="from-group mb-2">
+                {{ form.num_cols.label(class="form-control-label") }}
+                {% if form.num_cols.errors %}
+                    {{ form.num_cols(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.num_cols.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.num_cols(class="form-control") }}
+                {% endif %}
+            </div>
+    <p>
+        <input type='file' name='file' multiple=''>
+        <input type='submit' value='upload'>
+    </p>
+
+</form>
+</div>
+
+{% endblock %}
