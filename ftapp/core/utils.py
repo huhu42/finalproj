@@ -8,8 +8,12 @@ import io
 import base64
 timestamp = time.strftime('%Y%m%d%H%M')
 import datetime as dt
+import os
+
+from flask import Flask
 
 from ftapp import logger
+import seaborn as sns
 from ftapp import db
 from factor_analyzer import FactorAnalyzer
 import traceback
@@ -233,9 +237,7 @@ def print_stats(portvals, benchmark,name,start, end, rfr = constants.RFR):
     print ("Final Portfolio Value: {}".format(portvals[-1]))
     return None
 
-import os
 
-from flask import Flask
 app = Flask(__name__)
 UPLOAD_FOLDER = './user_data'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -393,7 +395,6 @@ def eigenvalues_plt(data):
     plt.close()
 
     return 'data:image/png;base64,{}'.format(graph_url)
-import seaborn as sns
 
 def corr_matrix(data):
     img = io.BytesIO()
