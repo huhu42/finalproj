@@ -1,13 +1,15 @@
 import ftapp.core.utils as utils
 import ftapp.core.constants as constants
-
-
+#import os
+#dir = os.path.dirname(__file__)
 
 def get_train_graph(pretrain, learner, ticker, start_train, end_train, model ):
     if pretrain:
         learner.num_state = constants.NUM_STATES
         best_model = model()
-        best_model.load(('{}/{}.h5'.format(constants.WEIGHTS_FOLDER, ticker)))
+        file_name = ('./{}/{}.h5'.format(constants.WEIGHTS_FOLDER, ticker))
+        best_model.load(file_name)
+        print("loaded best mode for pretained")
         # TODO: on error display error stock not found
         learner.learner = best_model
         df_trades_train = learner.testPolicy(symbol=ticker, sd=start_train, ed=end_train, sv=constants.SV)
