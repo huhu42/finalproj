@@ -77,7 +77,7 @@ def get_data(symbols, dates, addSPY=True, colname = constants.CLOSE_COLUMN):
 
         # loop over all the stocks in the list and add to the column
     for symbol in symbols:
-        df_temp = pd.read_csv('./%s/%s.csv ' %(constants.MARKETDATA_FOLDER, symbol), index_col='Date',
+        df_temp = pd.read_csv('././%s/%s.csv ' %(constants.MARKETDATA_FOLDER, symbol), index_col='Date',
                               parse_dates=True, usecols=['Date', colname], na_values=['nan'])
         df_temp = df_temp.rename(columns={colname: symbol})
         df = df.join(df_temp)
