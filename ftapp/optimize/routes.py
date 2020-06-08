@@ -58,7 +58,8 @@ def optimize():
 
         #TODO: model selection, validation, get stats, optimization
 
-        return render_template('test_result.html', title='Optimization Result',  train_graph=traingraph_url, test_graph=testgraph_url)
+        return render_template('test_result.html', title='Optimization Result',  train_graph=traingraph_url, test_graph=testgraph_url, ticker = ticker, \
+                               start_train = start_train.strftime('%Y-%m-%d') , end_train = end_train.strftime('%Y-%m-%d') , start_test = start_test.strftime('%Y-%m-%d') , end_test = end_test.strftime('%Y-%m-%d') )
 
     return render_template('optimize.html', title='Opmization Result', form=form)
 

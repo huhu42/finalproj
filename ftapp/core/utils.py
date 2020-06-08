@@ -340,26 +340,27 @@ def create_graph(portvals, benchmark, trades_df, name, save = False, show = True
 
     plt.style.use('ggplot')
 
-
     b_temp = benchmark / benchmark.iloc[0]
     pv_temp = portvals / portvals.iloc[0]
     plt.plot(b_temp, label='Benchmark (Buy & Hold)', color="g")
     plt.plot(pv_temp, label='Portfolio', color="r")
+    buys = trades_df["Shares"] > 0
+    sells = trades_df["Shares"] < 0
+    print("buys",trades_df.index[trades_df["Shares"] >0].tolist())
     for i in range(len(trades_df)):
         if trades_df.iloc[i]["Shares"] > 0:
-            plt.axvline(x=trades_df.index[i], color='blue')
+            plt.axvline(x=trades_df.index[i],label = 'Buys (Long)', color='blue')
         elif trades_df.iloc[i]["Shares"] < 0:
-            plt.axvline(x=trades_df.index[i], color='black')
+            plt.axvline(x=trades_df.index[i], label = 'Sells (Short)', color='black')
     name = name
     plt.xlabel('Date')
     plt.xticks(rotation=70)
     plt.ylabel('Normalized Daily Value')
-    plt.title('Q-Learner vs Benchmark Performance - ' + str(name))
-    plt.legend()
-    #if show:
-    #    plt.show()
-    #if save:
-        #plt.savefig('%s Q-Learner Performance.png'%(name))
+    plt.title('Deep Reinforcement Learner vs Benchmark Performance - ' + str(name))
+
+    handles, labels = plt.gca().get_legend_handles_labels()
+    by_label = dict(zip(labels, handles))
+    plt.legend(by_label.values(), by_label.keys())
 
     plt.savefig(img, format='png')
 
