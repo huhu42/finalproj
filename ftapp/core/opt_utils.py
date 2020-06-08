@@ -1,12 +1,13 @@
 import ftapp.core.utils as utils
 import ftapp.core.constants as constants
-#import os
+from definitions import ROOT_DIR
 #dir = os.path.dirname(__file__)
 
 def get_train_graph(pretrain, learner, ticker, start_train, end_train, model ):
     if pretrain:
         learner.num_state = constants.NUM_STATES
         best_model = model()
+
         file_name = ('././{}/{}.h5'.format(constants.WEIGHTS_FOLDER, ticker))
         print("file_name", file_name)
         best_model.load(file_name)

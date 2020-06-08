@@ -8,9 +8,9 @@ app = Flask(__name__)
 app.config['LOG_FILE_NAME'] = 'user_data/trace.log'
 #for running on Heroku
 
-app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('SQLALCHEMY_DATABASE_URI')
-#app.config.from_object('config')
+#app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
+#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('SQLALCHEMY_DATABASE_URI')
+app.config.from_object('config')
 
 
 db = SQLAlchemy(app)
