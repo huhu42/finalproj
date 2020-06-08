@@ -2,12 +2,15 @@
 
 {% block content %}
 <div class="content-section">
+        <p>Trade optimization with reinforcement learning </p>
     <form method="POST" action="/optimization/optimize">
         {{ form.hidden_tag() }}
         <fieldset class="from-group border-bottom mb-3">
             <legend class="border-bottom mb-2">Run Optimization</legend>
 			<div class="from-group mb-2">
                 {{ form.ticker.label(class="form-control-label") }}
+                <p><font size="1.5" color="#00008b"> Input a stock ticker to optimize for (use FB for demonstration purposes)*
+                </font></p>
                 {% if form.ticker.errors %}
                     {{ form.ticker(class="form-control form-control-lg is-invalid") }}
                     <div class="invalid-feedback">
@@ -21,6 +24,8 @@
             </div>
             <div class="from-group mb-2">
                 {{ form.start.label(class="form-control-label") }}
+                                <p><font size="1.5" color="#00008b"> Input start date of training period (leave blank if using IPO data)
+                </font></p>
                 {% if form.start.errors %}
                     {{ form.start(class="form-control form-control-lg is-invalid") }}
                     <div class="invalid-feedback">
@@ -34,6 +39,8 @@
             </div>
             <div class="from-group mb-3">
                 {{ form.end.label(class="form-control-label") }}
+                                                <p><font size="1.5" color="#00008b"> Input end date of testing period (leave blank if using IPO data)
+                </font></p>
                 {% if form.end.errors %}
                     {{ form.end(class="form-control form-control-lg is-invalid") }}
                     <div class="invalid-feedback">
@@ -47,12 +54,16 @@
             </div>
             <div class="from-group mb-3">
                 <p>
-                    <input type="checkbox" name='lockup' value='lockup'>IPO Lockup Expiration (test using IPO and lockup expiration dates, available only for select stocks) <br>
+                    <input type="checkbox" name='lockup' value='lockup'>IPO Lockup Expiration <br>
+                    <font size="1.5" color="#00008b"> Check to using IPO date and lockup expiration date as start and end dates, available only for select stocks
+                </font></p>
                 </p>
 
   			</div>
         <div class="from-group mb-3">
                 {{ form.days.label(class="form-control-label") }}
+                <p><font size="1.5" color="#00008b"> Choose number of days to reserve for testing
+                </font></p>
                 {% if form.days.errors %}
                     {{ form.days(class="form-control form-control-lg is-invalid") }}
                     <div class="invalid-feedback">
@@ -66,13 +77,18 @@
         </div>
         <div class="from-group mb-3">
             <p>
-                <input type="checkbox" name='pretrain' value='pretrain'>Use Pre-trained Best Model (test using pre-trained model, available only for select stocks, try "FB") <br>
+                <input type="checkbox" name='pretrain' value='pretrain'>Use Pre-trained Best Model<br>
+                <font size="1.5" color="#00008b"> Check to use previously trained best model (faster results, available only for "FB" for demonstration purposes)
+                </font>
+
             </p>
 
         </div>
         <div class="from-group">
             {{ form.submit(class="btn btn-outline-info") }}
         </div>
+                        </p>
+    <p>* Required Fields</p>
     </form>
 </div>
 {% endblock %}

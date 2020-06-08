@@ -25,6 +25,6 @@ class OptimizeForm(FlaskForm):
     start = DateField('Start Date', format='%Y-%m-%d')
     end = DateField('End Date', format='%Y-%m-%d')
     lockup = BooleanField('IPO Lockup Expiration')
-    days = IntegerField('Number of Days for Testing (if selecting IPO Lockup Expiration)', validators=[NumberRange(-100, 100)])
+    days = IntegerField('Number of Days for Testing', validators=[NumberRange(-100, 100)])
     pretrain = BooleanField('Use Pretrained Best Model')
     submit = SubmitField('Run')
