@@ -1,7 +1,5 @@
-
-
-
 {% extends  'layout.html' %}
+
 
 {% block content %}
 <div class="container-fluid">
@@ -9,9 +7,36 @@
         <a class="btn btn-primary btn-sm mt-1 mb-1" href="{{ url_for('optimization.optimize') }}">New Test</a>
         <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal">Delete</button>
     </div>
+
+    <div>
+        <p class="text"  >Training Performance for {{ticker}} from {{start_train}} to {{end_train}}</p>
+    </div>
+
     <ul class="nav nav-tabs md-tabs" id="myTabMD" role="tablist">
-            <div><img src='{{train_graph}}'/></div>
-            <div><img src='{{test_graph}}'/></div>
+        <div><img src='{{train_graph}}'/></div>
+    </ul>
+
+    <div>
+        <p class="text">Test Performance for {{ticker}} from {{start_test}} to {{end_test}}</p>
+    </div>
+
+    <ul class="nav nav-tabs md-tabs" id="myTabMD" role="tablist">
+        <div><img src='{{test_graph}}'/></div>
+    </ul>
+
+<!--div  style ="display: table; table-layout: fixed;height: 100%"--><!-- the children of this element will automatically occupy its entire height, courtesy of 'table-cell' rule. -->
+        <!--div style="display: table-cell; table-layout: fixed;width: 50%">
+            <img src='{{test_graph}}'/>
+        </div-->
+        <!---div style="display: table-cell; table-layout: fixed;width:50%">
+            <p class="textclass">The optimal strategy for {{ticker}} is:</p>
+            <p class="textclass"> xxxxxxx </p-->
+        <!-- Wall of text follows... -->
+        <!--/div-->
+    </div>
+</div>
+
+
 <!-- Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
