@@ -8,12 +8,12 @@ from ftapp.models import Screener, Regression
 class ScreenerForm(FlaskForm):
     name = StringField('Data Name', validators=[DataRequired(), Length(min=2, max=30)])
     #screeninput = FileField('Screener Data File (.csv)', validators=[FileAllowed(['csv'])])
-    ycol = StringField('Predict Column Name (Default Last)', validators=[Length(min=2, max=30)])
+    ycol = StringField('Predict Column', validators=[Length(min=2, max=30)])
     discretize = BooleanField('Discretize Predict')
     #fromfolder = BooleanField('From folder')
     #submit = SubmitField('Upload')
-    cat_cols =StringField('Catagorical Columns (-1 for all remaining, 0 for none, split col names by comma)', validators=[Length(min=2, max=1000)])
-    num_cols = StringField('Numerical Columns (-1 for all remaining, 0 for none, split col names by comma)', validators=[Length(min=2, max=1000)])
+    cat_cols =StringField('Catagorical Columns', validators=[Length(min=2, max=1000)])
+    num_cols = StringField('Numerical Columns', validators=[Length(min=2, max=1000)])
 
     def validate_name(self, name):
         indicator = Screener.query.filter_by(name=name.data).first()

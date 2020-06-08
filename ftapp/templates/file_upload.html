@@ -5,12 +5,19 @@
 
 
 <div class="content-section">
+
+    <p>To start factor analysis, upload a CSV file that is in standard format: </p>
+    <p> - 1st row are column names</p>
+    <p> - One of the columns is "Prediction"</p>
+    <p> - No extra blank rows and columns in between data</p>
 <form action='' method="POST" enctype="multipart/form-data">
     {{ form.hidden_tag() }}
             <fieldset class="from-group">
-                <legend class="border-bottom mb-2">Uploade CSV File</legend>
+                <legend class="border-bottom mb-2">Upload CSV File</legend>
                 <div class="from-group mb-2">
                 {{ form.name.label(class="form-control-label") }}
+                    <p> <font size="1.5" color="#00008b">Choose a name for this dataset, name field cannot be the same as previous datasets *
+                    </font> </p>
                 {% if form.name.errors %}
                     {{ form.name(class="form-control form-control-lg is-invalid") }}
                     <div class="invalid-feedback">
@@ -25,6 +32,8 @@
 
                 <div class="from-group mb-2">
                 {{ form.ycol.label(class="form-control-label") }}
+                <p> <font size="1.5" color="#00008b">Select the "Prediction" column in your dataset by column number, default to last column if left blank
+                </font></p>
                 {% if form.ycol.errors %}
                     {{ form.ycol(class="form-control form-control-lg is-invalid") }}
                     <div class="invalid-feedback">
@@ -39,10 +48,14 @@
                 <div class="form-group">
                     <p>
                     <input type="checkbox" name='discretize' value='discretize'>Discretize Prediction <br>
-                    </p>
+                        <font size="1.5" color="#00008b">Check if your prediction should be discrete
+                </font></p>
+
                 </div>
                 <div class="from-group mb-2">
                 {{ form.cat_cols.label(class="form-control-label") }}
+                <p> <font size="1.5" color="#00008b"> Input your "Catagorical" columns by column names split by comma, use -1 for all remaining, 0 for none (e.g. Industry,Sub-Industry,Type)
+                </font></p>
                 {% if form.cat_cols.errors %}
                     {{ form.cat_cols(class="form-control form-control-lg is-invalid") }}
                     <div class="invalid-feedback">
@@ -56,6 +69,8 @@
             </div>
                 <div class="from-group mb-2">
                 {{ form.num_cols.label(class="form-control-label") }}
+                <p> <font size="1.5" color="#00008b"> Input your "Numerical" columns by column names split by comma, use -1 for all remaining, 0 for none (e.g. P/E, Profit, Sales)
+                </font></p>
                 {% if form.num_cols.errors %}
                     {{ form.num_cols(class="form-control form-control-lg is-invalid") }}
                     <div class="invalid-feedback">
@@ -69,9 +84,10 @@
             </div>
     <p>
         <input type='file' name='file' multiple=''>
+        <font size="1.5" color="#00008b">Choose a file in standard csv format*</font>
         <input type='submit' value='upload'>
     </p>
-
+    <p>* Required Fields</p>
 </form>
 </div>
 
