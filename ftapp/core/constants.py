@@ -22,6 +22,7 @@ MARKETDATA_FOLDER = 'stock_dfs'
 BUYINFO_FOLDER = 'buy_info'
 PORTVAL_FOLDER = 'portfolio_val'
 WEIGHTS_FOLDER = 'weights'
+LOGFILE = 'user_data/trace.log'
 
 # Backtest result or statistics names
 TEST_NAME_PREFIX = 'BackTest'

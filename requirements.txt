@@ -11,7 +11,7 @@ pip
 flask_wtf
 wtforms
 flask_sqlalchemy
-tensorflow==1.14
+tensorflow==2.0.0-rc1
 pandas_datareader
 factor_analyzer
 yellowbrick

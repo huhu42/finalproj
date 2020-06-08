@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, flash, redirect, url_for, request
+from flask import Blueprint, render_template, request
 from ftapp.optimize.forms import OptimizeForm
 from ftapp.core.marketsim import Learner_Strat
 import ftapp.core.learner as nn
