@@ -125,18 +125,3 @@ a.article-title:hover {
   visibility: visible;
   opacity: 1;
 }
-.container {
-	 width:500px;
-}
-
-.imageclass {
-	 float:left;
-	 width:200px;
-	 height:20px;
-}
-
-.textclass {
-	 float:left;
-	 width:300px;
-	 height:20px;
-}
